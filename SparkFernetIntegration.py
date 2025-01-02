@@ -1,5 +1,17 @@
 # Details - 
 
+"""
+
+env Setup
+pip install Fernet
+pip install pyspark
+
+"""
+
+from cryptography.fernet import Fernet
+from pyspark.sql.functions import *
+from pyspark.sql.types import *
+
 
 # encrypts plain text
 def encryptor(text, encryption_key):
