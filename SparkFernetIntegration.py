@@ -33,3 +33,21 @@ def data_shield(df, encryption_key, col_list):
         df = df.withColumn(f"{column}_encrypted", encryptify(column, lit(encryption_key))).drop(column)
         
     return df
+
+# load data from source, in this example creating dummy dataframe
+df = spark \
+  .createDataFrame([[1, "abc", "450"],
+          [2, "def", "784"],
+          [3, "ghi", "200"],
+          [4, "abc","800"],
+          [5, "jkl", "850"],
+          [6, "def", "745"]],
+      schema = ["user_id", "name", "credit_score"])
+
+# encrypt single column
+df_encrypted_1 = data_shield(df, key, ["name"])
+df_encrypted_1.show()
+
+# encrypt multiple columns
+df_encrypted_2 = data_shield(df, key, ["name", "credit_score"])
+df_encrypted_2.show()
