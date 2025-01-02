@@ -1,3 +1,3 @@
 # QuickCodeBlocks
 
-Collection of small code reusable code blocks and automations
+Collection of short reusable code blocks and automations
