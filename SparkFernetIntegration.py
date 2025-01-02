@@ -1,4 +1,4 @@
-# Details - 
+# Details - https://maheshwarineeraj.medium.com/secure-data-ingestion-with-spark-and-fernet-e7fc2100a8e8 
 
 """
 
