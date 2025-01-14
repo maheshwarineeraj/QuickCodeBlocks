@@ -1,7 +1,6 @@
 """
 Dummy DAG to demonstrate callback functions.
-Details -  
-
+Details - https://maheshwarineeraj.medium.com/callback-functions-in-airflow-powerful-hooks-for-workflow-management-71decf3a46a7 
 """
 
 from airflow import DAG
