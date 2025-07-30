@@ -10,10 +10,13 @@ Workflow:
 """
 
 # create spark session
-spark = SparkSession \
-        .builder \
-        .appName("Spark Redis Integration") \
+from pyspark.sql import SparkSession
+
+spark = (
+    SparkSession.builder
+        .appName("Spark Redis Integration")
         .getOrCreate()
+)
 
 
 # create dummy dataframe
@@ -26,8 +29,11 @@ df = spark.createDataFrame([[1, "abc", 5, "2024-05-09"],
 
 # write spark dataframe to Redis
 # table is equivalent prefix in Redis
-df.write.format("org.apache.spark.sql.redis") \
-    .option("table", "user") \ # Redis Prefix
-    .option("key.column", "user_id") \ # Unique Key
-    .option("host", "localhost") \
-    .option("port", "6379").save()
+(
+    df.write.format("org.apache.spark.sql.redis")
+      .option("table", "user")   # Redis Prefix
+      .option("key.column", "user_id")   # Unique Key
+      .option("host", "localhost")
+      .option("port", "6379")
+      .save()
+)
